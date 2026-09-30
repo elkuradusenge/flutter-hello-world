@@ -1,0 +1,196 @@
+// import 'package:flutter/material.dart';
+
+// void main() => runApp(const MyApp());
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'CarouselView Demo',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         colorScheme: ColorScheme.fromSeed(
+//           seedColor: Colors.deepPurple,
+//         ),
+//         useMaterial3: true,
+//       ),
+//       home: const MyHomePage(
+//         title: 'Travel Destinations',
+//       ),
+//     );
+//   }
+// }
+
+// class MyHomePage extends StatelessWidget {
+//   final String title;
+
+//   const MyHomePage({
+//     super.key,
+//     required this.title,
+//   });
+
+//   final List<Map<String, dynamic>> destinations = const [
+//     {
+//       'name': 'Kigali',
+//       'country': 'Rwanda',
+//       'image':
+//           'https://images.unsplash.com/photo-1675756261486-09bd1e0f6c8a?auto=format&fit=crop&w=800&q=80',
+//       'https://images.unsplash.com/photo-1675756261486-09bd1e0f6c8a?auto=format&fit=crop&w=800&q=80',
+//       'description': 'A clean and beautiful city in the heart of Rwanda.',
+//     },
+//     {
+//       'name': 'Cape Town',
+//       'country': 'South Africa',
+//       'image':
+//           'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80',
+//       'description': 'Explore mountains, beaches, and beautiful landscapes.',
+//     },
+//     {
+//       'name': 'Nairobi',
+//       'country': 'Kenya',
+//       'image':
+//           'https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=800&q=80',
+//       'description': 'Experience wildlife and modern city life together.',
+//     },
+//     {
+//       'name': 'Zanzibar',
+//       'country': 'Tanzania',
+//       'image':
+//           'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80',
+//       'description':
+//           'Relax on beautiful beaches surrounded by turquoise water.',
+//     },
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(title),
+//       ),
+//       body: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           const Padding(
+//             padding: EdgeInsets.fromLTRB(20, 24, 20, 8),
+//             child: Text(
+//               'Explore Destinations',
+//               style: TextStyle(
+//                 fontSize: 28,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//           ),
+//           const Padding(
+//             padding: EdgeInsets.symmetric(horizontal: 20),
+//             child: Text(
+//               'Discover beautiful places around Africa.',
+//               style: TextStyle(
+//                 fontSize: 16,
+//                 color: Colors.grey,
+//               ),
+//             ),
+//           ),
+//           const SizedBox(height: 24),
+//           SizedBox(
+//             height: 400,
+//             child: CarouselView(
+//               itemExtent: 300,
+//               itemSnapping: true,
+//               children: destinations.map((destination) {
+//                 return Card(
+//                   clipBehavior: Clip.antiAlias,
+//                   elevation: 4,
+//                   child: Stack(
+//                     children: [
+//                       Positioned.fill(
+//                         child: Image.network(
+//                           destination['image'],
+//                           fit: BoxFit.cover,
+//                         ),
+//                       ),
+//                       Positioned.fill(
+//                         child: Container(
+//                           decoration: BoxDecoration(
+//                             gradient: LinearGradient(
+//                               begin: Alignment.topCenter,
+//                               end: Alignment.bottomCenter,
+//                               colors: [
+//                                 Colors.transparent,
+//                                 Colors.black.withOpacity(0.85),
+//                               ],
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//                       Positioned(
+//                         left: 20,
+//                         right: 20,
+//                         bottom: 20,
+//                         child: Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Text(
+//                               destination['country'],
+//                               style: const TextStyle(
+//                                 color: Colors.white70,
+//                                 fontSize: 14,
+//                               ),
+//                             ),
+//                             const SizedBox(height: 4),
+//                             Text(
+//                               destination['name'],
+//                               style: const TextStyle(
+//                                 color: Colors.white,
+//                                 fontSize: 28,
+//                                 fontWeight: FontWeight.bold,
+//                               ),
+//                             ),
+//                             const SizedBox(height: 8),
+//                             Text(
+//                               destination['description'],
+//                               style: const TextStyle(
+//                                 color: Colors.white,
+//                                 fontSize: 14,
+//                               ),
+//                             ),
+//                             const SizedBox(height: 12),
+//                             ElevatedButton(
+//                               onPressed: () {
+//                                 ScaffoldMessenger.of(context).showSnackBar(
+//                                   SnackBar(
+//                                     content: Text(
+//                                       'You selected ${destination['name']}',
+//                                     ),
+//                                   ),
+//                                 );
+//                               },
+//                               child: const Text('Explore'),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 );
+//               }).toList(),
+//             ),
+//           ),
+//           const SizedBox(height: 30),
+//           const Padding(
+//             padding: EdgeInsets.symmetric(horizontal: 20),
+//             child: Text(
+//               'Swipe left or right to explore',
+//               style: TextStyle(
+//                 fontSize: 14,
+//                 color: Colors.grey,
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
